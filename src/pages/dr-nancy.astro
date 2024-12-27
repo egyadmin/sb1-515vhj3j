@@ -1,0 +1,143 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProfileHeader from '../components/ProfileHeader.astro';
+import ProfileSection from '../components/ProfileSection.astro';
+import AchievementList from '../components/AchievementList.astro';
+
+const arAchievements = [
+  {
+    title: "قيادة مركز إطلالة للبحوث والدراسات:",
+    description: "عملت على تطوير المركز ليصبح منصة بحثية رائدة في تحليل القضايا الاجتماعية والاقتصادية."
+  },
+  {
+    title: "المساهمة في الدراسات الميدانية:",
+    description: "شاركت وأشرفت على إعداد العديد من الدراسات التي تركز على القضايا التنموية والمجتمعية."
+  },
+  {
+    title: "إصدار أوراق بحثية ومقالات:",
+    description: "تمتلك د. نانسي سجلًا حافلًا من الإصدارات التي نُشرت في مجلات علمية مرموقة."
+  },
+  {
+    title: "تنظيم المؤتمرات والندوات:",
+    description: "قادت تنظيم عدد من الفعاليات البحثية التي جمعت خبراء ومختصين لمناقشة أهم القضايا الراهنة."
+  }
+];
+
+const enAchievements = [
+  {
+    title: "Leading the Ittilaa Center for Research and Studies:",
+    description: "Dr. Wahba has transformed the center into a pioneering research platform for analyzing social and economic issues."
+  },
+  {
+    title: "Contributing to Field Studies:",
+    description: "She has participated in and supervised numerous studies focused on developmental and societal challenges."
+  },
+  {
+    title: "Publishing Research Papers and Articles:",
+    description: "Dr. Wahba has an impressive record of publications in esteemed scientific journals."
+  },
+  {
+    title: "Organizing Conferences and Seminars:",
+    description: "She has led the organization of various research events that brought together experts and specialists to discuss pressing contemporary issues."
+  }
+];
+---
+
+<Layout title="Dr. Nancy Wahba | د. نانسي وهبة">
+  <main>
+    <div class="language-toggle">
+      <a href="#arabic">عربي</a> | <a href="#english">English</a>
+    </div>
+
+    <div id="arabic" class="profile-container">
+      <ProfileHeader
+        title="د. نانسي وهبة"
+        subtitle="مديرة مركز إطلالة للبحوث والدراسات"
+        lang="ar"
+      />
+
+      <ProfileSection title="نبذة" lang="ar">
+        <p>
+          د. نانسي وهبة هي أكاديمية وباحثة متخصصة في إدارة مراكز البحوث والدراسات الاستراتيجية. تمتاز بخبرة طويلة في قيادة الفرق البحثية وإعداد الدراسات الميدانية التي تساهم في تطوير سياسات وممارسات مستدامة تخدم المجتمع.
+        </p>
+      </ProfileSection>
+
+      <ProfileSection title="أبرز الأعمال والإنجازات" lang="ar">
+        <AchievementList achievements={arAchievements} lang="ar" />
+      </ProfileSection>
+
+      <ProfileSection title="الرؤية" lang="ar">
+        <p>
+          تسعى د. نانسي إلى تعزيز دور البحث العلمي في صناعة القرارات، مع التركيز على القضايا التي تؤثر بشكل مباشر على جودة حياة الأفراد، وتسعى لتطوير حلول مستدامة تُبنى على أسس علمية متينة.
+        </p>
+      </ProfileSection>
+    </div>
+
+    <hr class="section-divider" />
+
+    <div id="english" class="profile-container">
+      <ProfileHeader
+        title="Dr. Nancy Wahba"
+        subtitle="Director of the Ittilaa Center for Research and Studies"
+        lang="en"
+      />
+
+      <ProfileSection title="About" lang="en">
+        <p>
+          Dr. Nancy Wahba is an academic and researcher specializing in managing research and strategic studies centers. She has extensive experience in leading research teams and preparing field studies that contribute to the development of sustainable policies and practices benefiting society.
+        </p>
+      </ProfileSection>
+
+      <ProfileSection title="Key Achievements and Contributions" lang="en">
+        <AchievementList achievements={enAchievements} lang="en" />
+      </ProfileSection>
+
+      <ProfileSection title="Vision" lang="en">
+        <p>
+          Dr. Wahba aims to enhance the role of scientific research in decision-making, with a focus on addressing issues that directly impact the quality of life. She strives to develop sustainable solutions based on robust scientific foundations.
+        </p>
+      </ProfileSection>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 2rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    color: white;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .language-toggle {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .language-toggle a {
+    color: rgb(var(--accent-light));
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+  }
+
+  .language-toggle a:hover {
+    text-decoration: underline;
+  }
+
+  .profile-container {
+    background: rgba(var(--accent-dark), 0.2);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid rgba(var(--accent-light), 0.2);
+    margin-bottom: 2rem;
+  }
+
+  .section-divider {
+    border: none;
+    border-top: 1px solid rgba(var(--accent-light), 0.2);
+    margin: 3rem 0;
+  }
+</style>

@@ -1,0 +1,32 @@
+---
+interface Props {
+  title: string;
+  lang: 'ar' | 'en';
+}
+
+const { title, lang } = Astro.props;
+---
+
+<section class={`profile-section ${lang}`}>
+  <h3>{title}</h3>
+  <slot />
+</section>
+
+<style>
+  .profile-section {
+    margin: 2rem 0;
+    padding: 1rem;
+    background: rgba(var(--accent-dark), 0.1);
+    border-radius: 8px;
+  }
+
+  .profile-section.ar {
+    direction: rtl;
+  }
+
+  h3 {
+    color: rgb(var(--accent-light));
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+</style>

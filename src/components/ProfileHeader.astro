@@ -1,0 +1,42 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  lang: 'ar' | 'en';
+}
+
+const { title, subtitle, lang } = Astro.props;
+---
+
+<div class={`profile-header ${lang}`}>
+  <h1 class="title">{title}</h1>
+  <h2 class="subtitle">{subtitle}</h2>
+</div>
+
+<style>
+  .profile-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .profile-header.ar {
+    direction: rtl;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+    color: rgb(var(--accent-light));
+    margin: 0.5rem 0;
+  }
+</style>

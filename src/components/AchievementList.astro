@@ -1,0 +1,44 @@
+---
+interface Achievement {
+  title: string;
+  description: string;
+}
+
+interface Props {
+  achievements: Achievement[];
+  lang: 'ar' | 'en';
+}
+
+const { achievements, lang } = Astro.props;
+---
+
+<ul class={lang}>
+  {achievements.map(achievement => (
+    <li>
+      <strong>{achievement.title}</strong>
+      {achievement.description}
+    </li>
+  ))}
+</ul>
+
+<style>
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul.ar {
+    direction: rtl;
+  }
+
+  li {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  strong {
+    color: rgb(var(--accent-light));
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+</style>
